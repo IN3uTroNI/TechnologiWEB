@@ -1,0 +1,92 @@
+{
+  "cafeteria": {
+    "name": "University Central Cafeteria",
+    "location": {
+      "building": "Main Campus",
+      "floor": "Ground Floor",
+      "address": "123 University Street"
+    },
+    "contact": {
+      "email": "cafeteria@university.edu",
+      "phone": "+40 712 345 678"
+    },
+    "schedule": {
+      "monday_friday": "08:00 - 19:00",
+      "saturday": "09:00 - 15:00",
+      "sunday": "Closed"
+    },
+    "services": [
+      "Dine-in",
+      "Takeaway",
+      "Student discounts",
+      "Free Wi-Fi",
+      "Card payment"
+    ],
+    "menu": {
+      "breakfast": [
+        {
+          "id": 1,
+          "name": "Ham & Cheese Sandwich",
+          "price": 12.50,
+          "currency": "RON",
+          "available": true
+        },
+        {
+          "id": 2,
+          "name": "Croissant",
+          "price": 6.00,
+          "currency": "RON",
+          "available": true
+        }
+      ],
+      "main_courses": [
+        {
+          "id": 3,
+          "name": "Grilled Chicken with Rice",
+          "price": 25.00,
+          "currency": "RON",
+          "available": true
+        },
+        {
+          "id": 4,
+          "name": "Vegetarian Pasta",
+          "price": 22.00,
+          "currency": "RON",
+          "available": false
+        }
+      ],
+      "drinks": [
+        {
+          "id": 5,
+          "name": "Espresso",
+          "price": 7.00,
+          "currency": "RON",
+          "available": true
+        },
+        {
+          "id": 6,
+          "name": "Cappuccino",
+          "price": 9.00,
+          "currency": "RON",
+          "available": true
+        },
+        {
+          "id": 7,
+          "name": "Fresh Orange Juice",
+          "price": 10.00,
+          "currency": "RON",
+          "available": true
+        }
+      ],
+      "desserts": [
+        {
+          "id": 8,
+          "name": "Chocolate Cake",
+          "price": 14.00,
+          "currency": "RON",
+          "available": true
+        }
+      ]
+    }
+  }
+}

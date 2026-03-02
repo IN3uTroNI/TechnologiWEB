@@ -1,0 +1,93 @@
+{
+  "library": {
+    "name": "University Central Library",
+    "location": {
+      "building": "Library Building",
+      "floor": "All Floors",
+      "address": "45 Academic Avenue"
+    },
+    "contact": {
+      "email": "library@university.edu",
+      "phone": "+40 721 987 654"
+    },
+    "schedule": {
+      "monday_friday": "08:00 - 20:00",
+      "saturday": "09:00 - 16:00",
+      "sunday": "Closed"
+    },
+    "services": [
+      "Book lending",
+      "Reading rooms",
+      "Digital library access",
+      "Study rooms reservation",
+      "Printing and scanning",
+      "Free Wi-Fi"
+    ],
+    "membership": {
+      "required": true,
+      "eligibility": ["Students", "Professors", "University Staff"],
+      "card_required": true
+    },
+    "books": [
+      {
+        "id": 1,
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "isbn": "9780262033848",
+        "category": "Computer Science",
+        "available_copies": 3,
+        "total_copies": 5,
+        "shelf_location": "CS-101"
+      },
+      {
+        "id": 2,
+        "title": "Artificial Intelligence: A Modern Approach",
+        "author": "Stuart Russell",
+        "isbn": "9780136042594",
+        "category": "Artificial Intelligence",
+        "available_copies": 1,
+        "total_copies": 4,
+        "shelf_location": "AI-203"
+      },
+      {
+        "id": 3,
+        "title": "Principles of Economics",
+        "author": "N. Gregory Mankiw",
+        "isbn": "9781305585126",
+        "category": "Economics",
+        "available_copies": 0,
+        "total_copies": 2,
+        "shelf_location": "ECO-110"
+      },
+      {
+        "id": 4,
+        "title": "Aventurile lu Giga si Marcel",
+        "author": "I. Crenguta Emilian",
+        "isbn": "9085893458239",
+        "category": "Dramatic",
+        "available_copies": 4,
+        "total_copies": 4,
+        "shelf_location": "AB-321"
+      }
+    ],
+    "study_rooms": [
+      {
+        "id": 1,
+        "name": "Study Room A",
+        "capacity": 6,
+        "available": true
+      },
+      {
+        "id": 2,
+        "name": "Study Room B",
+        "capacity": 10,
+        "available": false
+      }
+    ],
+    "fines": {
+      "late_return_per_day": 2.50,
+      "currency": "RON",
+      "lost_book_fee": "Full replacement cost"
+    }
+  }
+}
