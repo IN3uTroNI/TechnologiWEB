@@ -3,12 +3,12 @@
     "name": "University Central Library",
     "location": {
       "building": "Library Building",
-      "floor": "All Floors",
-      "address": "45 Academic Avenue"
+      "floors": "10",
+      "address": "Alba Iulia"
     },
     "contact": {
-      "email": "library@university.edu",
-      "phone": "+40 721 987 654"
+      "email": "giighgxgiigh@gmail.com",
+      "phone": "+021 938 5849"
     },
     "schedule": {
       "monday_friday": "08:00 - 20:00",
@@ -61,7 +61,7 @@
       },
       {
         "id": 4,
-        "title": "Aventurile lu Giga si Marcel",
+        "title": "Aventurile lu Gica si Marcel",
         "author": "I. Crenguta Emilian",
         "isbn": "9085893458239",
         "category": "Dramatic",
