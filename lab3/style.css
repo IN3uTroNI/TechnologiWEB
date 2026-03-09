@@ -1,0 +1,26 @@
+/* light/dark theme styles */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark {
+    background-color: #1e1e1e;
+    color: #cccccc;
+}
+
+/* basic table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0.5rem;
+    border: 1px solid #000;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+}

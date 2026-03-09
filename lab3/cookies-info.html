@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Informații Cookies și Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Informații despre Cookies și Storage</h1>
+
+    <section id="cookiesSection">
+        <h2>Cookies</h2>
+        <p><strong>Valoare brută:</strong> <span id="rawCookies"></span></p>
+        <table id="cookiesInfoTable" border="1">
+            <thead><tr><th>Nume</th><th>Valoare</th><th>Lungime</th><th>Șterge</th></tr></thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="localSection">
+        <h2>localStorage</h2>
+        <pre id="rawLocal"></pre>
+        <table id="localInfoTable" border="1">
+            <thead><tr><th>Cheie</th><th>Valoare</th><th>Dimensiune</th><th>Șterge</th></tr></thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="sessionSection">
+        <h2>sessionStorage</h2>
+        <pre id="rawSession"></pre>
+        <table id="sessionInfoTable" border="1">
+            <thead><tr><th>Cheie</th><th>Valoare</th><th>Dimensiune</th><th>Șterge</th></tr></thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="compareSection">
+        <h2>Comparație</h2>
+        <table border="1">
+            <thead><tr><th>Tip</th><th>Capacitate</th><th>Expirare</th><th>Trimis la server?</th><th>Accesibil din?</th></tr></thead>
+            <tbody>
+                <tr><td>Cookie</td><td>~4KB per cookie</td><td>la expirare setată</td><td>Da</td><td>Server + JS</td></tr>
+                <tr><td>localStorage</td><td>~5-10MB</td><td>Până la ștergere</td><td>Nu</td><td>JS (același origin)</td></tr>
+                <tr><td>sessionStorage</td><td>~5-10MB</td><td>La închidere tab</td><td>Nu</td><td>JS (același tab)</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+    <script>
+        function renderCookiesInfo() {
+            document.getElementById('rawCookies').textContent = document.cookie;
+            const data = CookieManager.getAll();
+            const tbody = document.querySelector('#cookiesInfoTable tbody');
+            tbody.innerHTML = '';
+            for (const name in data) {
+                const val = data[name];
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${name}</td>
+                    <td>${val}</td>
+                    <td>${val.length}</td>
+                    <td><button data-name="${name}">Șterge</button></td>`;
+                tbody.appendChild(tr);
+            }
+            tbody.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    CookieManager.delete(btn.dataset.name);
+                    renderCookiesInfo();
+                });
+            });
+        }
+
+        function renderStorageInfo() {
+            const local = StorageManager.getAllLocal();
+            document.getElementById('rawLocal').textContent = JSON.stringify(local, null, 2);
+            const tbodyL = document.querySelector('#localInfoTable tbody');
+            tbodyL.innerHTML = '';
+            for (const k in local) {
+                const v = JSON.stringify(local[k]);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${k}</td>
+                    <td>${v}</td>
+                    <td>${v.length}</td>
+                    <td><button data-key="${k}" data-type="local">Șterge</button></td>`;
+                tbodyL.appendChild(tr);
+            }
+
+            const session = StorageManager.getAllSession();
+            document.getElementById('rawSession').textContent = JSON.stringify(session, null, 2);
+            const tbodyS = document.querySelector('#sessionInfoTable tbody');
+            tbodyS.innerHTML = '';
+            for (const k in session) {
+                const v = JSON.stringify(session[k]);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${k}</td>
+                    <td>${v}</td>
+                    <td>${v.length}</td>
+                    <td><button data-key="${k}" data-type="session">Șterge</button></td>`;
+                tbodyS.appendChild(tr);
+            }
+
+            document.querySelectorAll('#localInfoTable button, #sessionInfoTable button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.dataset.key;
+                    if (btn.dataset.type === 'local') StorageManager.removeLocal(key);
+                    else StorageManager.removeSession(key);
+                    renderStorageInfo();
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCookiesInfo();
+            renderStorageInfo();
+        });
+    </script>
+</body>
+</html>
