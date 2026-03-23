@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body class="light">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+                <li><a href="cookies-info.html">Vizualizare Cookies</a></li>
+            </ul>
+        </nav>
+
+        <h1>Autentificare</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Parolă</label>
+                <input id="password" type="password" required>
+            </div>
+            <div class="form-group">
+                <label><input id="remember" type="checkbox"> Ține-mă minte</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="register.html">Creează cont nou</a></p>
+        <div id="message"></div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

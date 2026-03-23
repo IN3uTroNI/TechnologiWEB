@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Coș de cumpărături</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body class="light">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="index.html">Acasă</a></li>
+            </ul>
+        </nav>
+        <h1>Coș de cumpărături</h1>
+
+        <form id="cartForm">
+            <div class="form-group">
+                <label for="product">Produs</label>
+                <select id="product"></select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Cantitate</label>
+                <input id="quantity" type="number" min="1" max="10" value="1" required>
+            </div>
+            <button type="submit">Adaugă în coș</button>
+            <button id="clearCart" type="button" class="btn-danger">Golește coșul</button>
+        </form>
+
+        <h2>Elemente în coș</h2>
+        <table id="cartTable">
+            <thead><tr><th>Produs</th><th>Cantitate</th><th>Preț</th><th>Sterge</th></tr></thead>
+            <tbody></tbody>
+        </table>
+        <p><strong>TOTAL: </strong><span id="total">0</span> lei</p>
+    </div>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>

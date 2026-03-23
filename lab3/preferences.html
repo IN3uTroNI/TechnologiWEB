@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Preferințe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <h1>Preferințe utilizator</h1>
@@ -42,39 +42,6 @@
 
     <script src="js/cookies.js"></script>
     <script src="js/storage.js"></script>
-    <script>
-        function applyTheme() {
-            const theme = CookieManager.get('theme') || 'light';
-            document.body.classList.remove('light', 'dark');
-            document.body.classList.add(theme);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            applyTheme();
-            const storedName = CookieManager.get('username');
-            if (storedName) document.getElementById('username').value = storedName;
-            const storedTheme = CookieManager.get('theme');
-            if (storedTheme) document.getElementById('theme').value = storedTheme;
-            const lang = localStorage.getItem('language');
-            if (lang) document.getElementById('language').value = lang;
-            const font = localStorage.getItem('fontSize');
-            if (font) document.getElementById('fontSize').value = font;
-
-            document.getElementById('prefsForm').addEventListener('submit', e => {
-                e.preventDefault();
-                const name = document.getElementById('username').value.trim();
-                const theme = document.getElementById('theme').value;
-                const language = document.getElementById('language').value;
-                const fontSize = document.getElementById('fontSize').value;
-                if (name) CookieManager.set('username', name);
-                CookieManager.set('theme', theme);
-                localStorage.setItem('language', language);
-                localStorage.setItem('fontSize', fontSize);
-                document.getElementById('message').textContent = 'Preferințele au fost salvate.';
-                applyTheme();
-                setTimeout(() => { window.location.href = 'index.html'; }, 1500);
-            });
-        });
-    </script>
+    <script src="js/preferences.js"></script>
 </body>
 </html>
